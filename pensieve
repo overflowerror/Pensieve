@@ -57,7 +57,7 @@ quiet || echo
 if test "$mode" = "stat"; then
 	content=$(gpg --quiet --batch --passphrase "$password" --decrypt $file 2> /dev/null)
 	if test $? != 0; then
-		echo "There was an error while decrypting file. Right passord?"
+		echo "There was an error while decrypting file. Right passord?" 1>&2
 		exit $EXIT_FAILURE
 	fi
 
@@ -89,7 +89,7 @@ if test "$mode" = "add"; then
 	if test -f $file; then
 		content=$(gpg --quiet --batch --passphrase "$password" --decrypt $file)
 		if test $? != 0; then
-			echo "There was an error while decrypting file. Right password?"
+			echo "There was an error while decrypting file. Right password?" 1>&2
 			exit $EXIT_FAILURE
 		fi
 	else 
@@ -98,7 +98,7 @@ if test "$mode" = "add"; then
 		
 	editor $tmpfile
 	if test $? != 0; then
-		echo "Editor exited with error. Aborting."
+		echo "Editor exited with error. Aborting." 1>&2
 		exit $EXIT_FAILURE
 	fi
 
@@ -116,7 +116,7 @@ debug() {
 if test "$mode" = "read"; then
 	content=$(gpg --quiet --batch --passphrase "$password" --decrypt $file)
 	if test $? != 0; then
-		echo "There was an error while decrypting file. Right password?"
+		echo "There was an error while decrypting file. Right password?"1>&2
 		exit $EXIT_FAILURE
 	fi
 	if test "$epp" != "-1"; then
@@ -162,5 +162,5 @@ if test "$mode" = "read"; then
 fi
 
 
-echo "Unknown mode."
+echo "Unknown mode." 1>&2
 exit $EXIT_FAILURE
