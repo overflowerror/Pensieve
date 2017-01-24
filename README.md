@@ -3,7 +3,7 @@ This is a diary script.
 
 You can add or read a diary, or you can view it's stats.
 
-Oh, and it's prodected with a symetric encryption from GPG (should be AES-128 or something similar string).
+Oh, and it's prodected with a symetric encryption from GPG (should be AES-128 or something similar strong).
 
 ## Usage
 
