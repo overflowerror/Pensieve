@@ -92,7 +92,12 @@ if test "$mode" = "add"; then
 			echo "There was an error while decrypting file. Right password?" 1>&2
 			exit $EXIT_FAILURE
 		fi
-	else 
+	else
+	       	echo -n "File not found. Create new diary? [y/n] "	
+		read yn
+		if test "$yn" != "yes" -a "$yn" != "y"; then
+			exit $EXIT_SUCCESS
+		fi
 		touch $file
 	fi
 		
