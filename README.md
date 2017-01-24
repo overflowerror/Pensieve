@@ -5,6 +5,10 @@ You can add or read a diary, or you can view it's stats.
 
 Oh, and it's prodected with a symetric encryption from GPG (should be AES-128 or something similar strong).
 
+## Setup
+
+Just execute `./dependencies.sh` to check for required programms.
+
 ## Usage
 
 ```
